@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_vehiculos', function (Blueprint $table) {
+        Schema::create('tucs', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->date('fecha_expedicion');
+            $table->date('fecha_vencimento');
+            $table->text('observacion');
+            $table->foreignId('padron_id')->constrained()->onDelete('cascade');
+            $table->foreignId('vehiculo_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_vehiculos');
+        Schema::dropIfExists('tucs');
     }
 };

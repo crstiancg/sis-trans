@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_vehiculos', function (Blueprint $table) {
+        Schema::create('recibos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nrecibo');
+            $table->date('fecha');
+            $table->double('monto',12,6);
+            $table->string('npapelata');
+            $table->text('observacion');
+            $table->foreignId('papeleta_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_vehiculos');
+        Schema::dropIfExists('recibos');
     }
 };
