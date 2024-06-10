@@ -17,7 +17,12 @@ class PapeletaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+           'npapeletas' => fake()->randomDigitNot(5),
+           'placa' => fake()->swiftBicNumber(),
+           'conductor' => fake()->firstNameMale().' '. fake()->lastName(),
+           'uit_id' => fake()->randomNumber(1,10),
+           'infraccion_id' => fake()->randomNumber(1,10),
+           'vehiculo_id' => fake()->randomNumber(1,10),
         ];
     }
 }

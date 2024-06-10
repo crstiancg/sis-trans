@@ -17,7 +17,11 @@ class TucFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'fecha_expedicion' => fake()->date(),
+            'fecha_vencimento' => fake()->date(),
+            'observacion' => fake()->text(),
+            'padron_id' => fake()->randomNumber(1,10),
+            'vehiculo_id' => fake()->randomNumber(1,10),
         ];
     }
 }

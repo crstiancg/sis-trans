@@ -17,7 +17,12 @@ class ReciboFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nrecibo' =>fake()->randomDigitNot(5),
+            'fecha' =>fake()->date(),
+            'monto' => fake()->randomFloat(2, 1000, 10000),
+            'npapelata' =>fake()->randomDigitNot(10),
+            'observacion' =>fake()->text(),
+            'papeleta_id' =>fake()->randomNumber(1,10),
         ];
     }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->double('monto',12,4);
-            $table->string('año');
+            $table->string('anio');
             $table->timestamps();
         });
     }

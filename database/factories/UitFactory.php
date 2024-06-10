@@ -17,7 +17,9 @@ class UitFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' =>fake()->name(),
+            'monto' => fake()->randomFloat(2, 1000, 10000),
+            'anio' =>fake()->year(),
         ];
     }
 }

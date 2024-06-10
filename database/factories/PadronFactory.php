@@ -17,7 +17,7 @@ class PadronFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'padron_id' => fake()->randomNumber(1,10),
         ];
     }
 }

@@ -17,7 +17,10 @@ class InfraccionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
-        ];
+            'codigo' =>fake()->randomNumber(),
+            'reglamenteo' =>fake()->word(),
+            'falta' =>fake()->name(),
+            'ordenanza' => 'N° '.fake()->name(),
+        ]; 
     }
 }
