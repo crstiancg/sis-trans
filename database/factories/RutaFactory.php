@@ -18,6 +18,8 @@ class RutaFactory extends Factory
     {
         return [
             'nombre' =>fake()->name(),
+            'estado' =>fake()->randomElement(['ida','vuelta']),
+            'codigo' =>fake()->randomDigitNot(5),
         ];
     }
 }

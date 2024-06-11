@@ -18,9 +18,9 @@ class PropietarioFactory extends Factory
     {
         return [
             'codigo' => fake()->randomDigitNot(5),
-            'nombres' => fake()->fake()->firstNameMale().' '. fake()->lastName(),
+            'nombres' => fake()->firstNameMale().' '.fake()->lastName(),
             'direccion' => 'Jr. '.fake()->name(),
-            'celular' => fake()->phone(),
+            'celular' => fake()->phoneNumber(),
             'email' => fake()->freeEmail(),
         ];
     }

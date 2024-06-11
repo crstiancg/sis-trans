@@ -17,7 +17,7 @@ class ModeloFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => fake()->name(),
+            'nombre' => fake()->name()
         ];
     }
 }

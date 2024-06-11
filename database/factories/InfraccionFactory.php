@@ -18,7 +18,7 @@ class InfraccionFactory extends Factory
     {
         return [
             'codigo' =>fake()->randomNumber(),
-            'reglamenteo' =>fake()->word(),
+            'reglamento' =>fake()->word(),
             'falta' =>fake()->name(),
             'ordenanza' => 'N° '.fake()->name(),
         ]; 

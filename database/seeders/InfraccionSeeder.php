@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Infraccion;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class InfraccionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Infraccion::factory(10)->create();
     }
 }

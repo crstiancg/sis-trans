@@ -17,8 +17,8 @@ class EmpresaFactory extends Factory
     public function definition(): array
     {
         return [
-            'codigo' => fake()->randomNumber(5),
-            'ruc' => fake()->randomNumber(11),
+            'codigo' => fake()->randomNumber(),
+            'ruc' => fake()->randomNumber(),
             'rsocial' => fake()->name(),
             'direccion' => 'Jr. '.fake()->name(),
             'registro' => fake()->name(),
