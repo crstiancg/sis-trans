@@ -7,43 +7,36 @@ use Illuminate\Http\Request;
 
 class PropietarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    
+    public function index(Request $request)
     {
-        //
+        return $this->generateViewSetList(
+            $request,
+            Propietario::query(),
+            [],
+            ['id'],
+            ['id']
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return response(Propietario::create($request->all()), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Propietario $propietario)
     {
-        //
+        return response()->json($propietario);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Propietario $propietario)
     {
-        //
+        $propietario->update($request->all());
+        return response()->json([$request, $propietario]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Propietario $propietario)
     {
-        //
+        return response()->json($propietario->delete());
     }
 }

@@ -7,43 +7,36 @@ use Illuminate\Http\Request;
 
 class PadronController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        return $this->generateViewSetList(
+            $request,
+            Padron::query(),
+            [],
+            ['id'],
+            ['id']
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return response(Padron::create($request->all()), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Padron $padron)
     {
-        //
+        return response()->json($padron);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Padron $padron)
     {
-        //
+        $padron->update($request->all());
+        return response()->json([$request, $padron]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Padron $padron)
     {
-        //
+        return response()->json($padron->delete());
     }
 }

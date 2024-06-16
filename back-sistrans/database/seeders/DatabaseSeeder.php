@@ -36,7 +36,8 @@ class DatabaseSeeder extends Seeder
             PadronSeeder::class,
             TucSeeder::class,
             PapeletaSeeder::class,
-            ReciboSeeder::class
+            ReciboSeeder::class,
+            UbigeoSeeder::class,
         ]);
     }
 }

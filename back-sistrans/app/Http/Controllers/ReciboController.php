@@ -7,43 +7,36 @@ use Illuminate\Http\Request;
 
 class ReciboController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        return $this->generateViewSetList(
+            $request,
+            Recibo::query(),
+            [],
+            ['id'],
+            ['id']
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return response(Recibo::create($request->all()), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Recibo $recibo)
     {
-        //
+        return response()->json($recibo);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Recibo $recibo)
     {
-        //
+        $recibo->update($request->all());
+        return response()->json([$request, $recibo]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Recibo $recibo)
     {
-        //
+        return response()->json($recibo->delete());
     }
 }

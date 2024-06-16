@@ -7,43 +7,36 @@ use Illuminate\Http\Request;
 
 class MarcaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    
+    public function index(Request $request)
     {
-        //
+        return $this->generateViewSetList(
+            $request,
+            Marca::query(),
+            [],
+            ['id'],
+            ['id']
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return response(Marca::create($request->all()), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Marca $marca)
     {
-        //
+        return response()->json($marca);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Marca $marca)
     {
-        //
+        $marca->update($request->all());
+        return response()->json([$request, $marca]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Marca $marca)
     {
-        //
+        return response()->json($marca->delete());
     }
 }

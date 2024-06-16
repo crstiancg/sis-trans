@@ -7,43 +7,36 @@ use Illuminate\Http\Request;
 
 class VehiculoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        return $this->generateViewSetList(
+            $request,
+            Vehiculo::query(),
+            [],
+            ['id'],
+            ['id']
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return response(Vehiculo::create($request->all()), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Vehiculo $vehiculo)
     {
-        //
+        return response()->json($vehiculo);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Vehiculo $vehiculo)
     {
-        //
+        $vehiculo->update($request->all());
+        return response()->json([$request, $vehiculo]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Vehiculo $vehiculo)
     {
-        //
+        return response()->json($vehiculo->delete());
     }
 }

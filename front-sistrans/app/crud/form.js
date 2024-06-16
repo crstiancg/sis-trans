@@ -17,7 +17,7 @@ const Form = forwardRef(({ save, isEdit, id, onClose }, ref) => {
   // });
 
   const form = isEdit
-    ? useForm('put', 'http://127.0.0.1:8000/api/ubigeos/' + id, {
+    ? useForm('put', 'http://sis-trans.test/api/ubigeos/' + id, {
         id: 0,
         codigo: '',
         tipo: '',
@@ -26,7 +26,7 @@ const Form = forwardRef(({ save, isEdit, id, onClose }, ref) => {
         cod_dist: '',
         nombre: '',
       })
-    : useForm('post', 'http://127.0.0.1:8000/api/ubigeos', {
+    : useForm('post', 'http://sis-trans.test/api/ubigeos', {
         id: 0,
         codigo: '',
         tipo: '',

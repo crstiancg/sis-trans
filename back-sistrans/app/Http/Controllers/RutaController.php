@@ -7,43 +7,36 @@ use Illuminate\Http\Request;
 
 class RutaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        return $this->generateViewSetList(
+            $request,
+            Ruta::query(),
+            [],
+            ['id'],
+            ['id']
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return response(Ruta::create($request->all()), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Ruta $ruta)
     {
-        //
+        return response()->json($ruta);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Ruta $ruta)
     {
-        //
+        $ruta->update($request->all());
+        return response()->json([$request, $ruta]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Ruta $ruta)
     {
-        //
+        return response()->json($ruta->delete());
     }
 }

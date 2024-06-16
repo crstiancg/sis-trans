@@ -7,43 +7,36 @@ use Illuminate\Http\Request;
 
 class ModeloController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        return $this->generateViewSetList(
+            $request,
+            Modelo::query(),
+            [],
+            ['id'],
+            ['id']
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return response(Modelo::create($request->all()), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Modelo $modelo)
     {
-        //
+        return response()->json($modelo);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Modelo $modelo)
     {
-        //
+        $modelo->update($request->all());
+        return response()->json([$request, $modelo]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Modelo $modelo)
     {
-        //
+        return response()->json($modelo->delete());
     }
 }

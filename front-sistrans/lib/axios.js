@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { client } from 'laravel-precognition-react';
 const api = Axios.create({
   // baseURL: process.env.APP_API_URL,
-  baseURL: 'http://127.0.0.1:8000/',
+  baseURL: 'http://sis-trans.test/',
 
   // headers: {
   //   'X-Requested-With': 'XMLHttpRequest',

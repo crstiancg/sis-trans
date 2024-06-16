@@ -7,43 +7,36 @@ use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    
+    public function index(Request $request)
     {
-        //
+        return $this->generateViewSetList(
+            $request,
+            Empresa::query(),
+            [],
+            ['id'],
+            ['id']
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return response(Empresa::create($request->all()), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Empresa $empresa)
     {
-        //
+        return response()->json($empresa);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(Request $request, Empresa $empresa)
     {
-        //
+        $empresa->update($request->all());
+        return response()->json([$request, $empresa]);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+ 
     public function destroy(Empresa $empresa)
     {
-        //
+        return response()->json($empresa->delete());
     }
 }
